@@ -16,6 +16,9 @@
 
 // Written at Louisiana State University.
 
-$plugin->version = 2013061700;
-$plugin->maturity = MATURITY_STABLE;
-$plugin->release = '2.0.1 (CLAMP)';
+$plugin->version   = 2014010700;
+$plugin->requires  = 2013111800;
+$plugin->cron      = 0;
+$plugin->component = 'block_quickmail';
+$plugin->maturity  = MATURITY_STABLE;
+$plugin->release   = '2.1.0 (CLAMP)';

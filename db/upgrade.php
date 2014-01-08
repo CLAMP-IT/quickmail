@@ -149,5 +149,15 @@ function xmldb_block_quickmail_upgrade($oldversion) {
         upgrade_block_savepoint($result, 2012061112, 'quickmail');
     }
 
+    if ($oldversion < 2014010700) {
+        // If new and old present; disable adding for the old one.
+        $context = context_system::instance();
+        list($roleids) = get_roles_with_cap_in_context($context, 'block/quickmail:addinstance');
+        foreach ($roleids as $roleid) {
+            assign_capability('block/quickmail:addinstance', CAP_PREVENT, $roleid, $context, true);
+        }
+        upgrade_block_savepoint(true, 2014010700, 'quickmail');
+    }
+
     return $result;
 }
